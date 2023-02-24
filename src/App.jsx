@@ -3,6 +3,7 @@ import {createBrowserRouter, RouterProvider, Outlet} from 'react-router-dom';
 import Nav from "./components/Nav";
 import HomePage from './pages/HomePage';
 import ProjectPage from './pages/ProjectPage';
+import LoginPage from './pages/LoginPage';
 
 const HeaderLayout = () => {
   return (
