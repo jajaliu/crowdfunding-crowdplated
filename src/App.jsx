@@ -4,6 +4,7 @@ import Nav from "./components/Nav";
 import HomePage from './pages/HomePage';
 import ProjectPage from './pages/ProjectPage';
 import LoginPage from './pages/LoginPage';
+import CreateProjectPage from './pages/CreateProjectPage';
 
 const HeaderLayout = () => {
   return (
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: '/project/:id',
         element: <ProjectPage />
+      },
+      {
+        path: '/create-project',
+        element: <CreateProjectPage />
       }
     ]
   }
