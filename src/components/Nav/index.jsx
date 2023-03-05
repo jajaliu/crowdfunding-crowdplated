@@ -25,7 +25,7 @@ function Nav() {
     return (
         <nav>
             <div><Link to="/">
-            <img id="logo" src="src/assets/CrowdPlated - Logo (1).jpg" alt="Logo" ></img>
+            <img id="logo" src="src/assets/logo.jpg" alt="Logo" ></img>
             </Link></div>
            
            <div>
