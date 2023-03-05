@@ -18,17 +18,25 @@ function ProjectPage() {
   
 
     return (
-        <div>
-            <h2>{projectData.title}</h2>
-            <h3>Description: {projectData.description}</h3>
-            <h3>Created at:{projectData.date_created} </h3>
-            <h3>{`Status: ${projectData.is_open}`}</h3>
-            <h3>Pledges:</h3>
-            <ul>
-                {projectData.pledges.map((pledge, key) => {
-                    return <li key={key}>{pledge.amount}</li>;
-                })}
-            </ul>
+        <div class="project-detail">
+            <div class="project-detail-column">
+                <img class="project-detail-image" src={projectData.image} alt="Project"></img>
+            </div>
+
+            <div class="project-detail-column">
+                <h2 class="project-detail-title">{projectData.title}</h2>
+                <p class="project-detail-date">{projectData.date_created} </p>
+                <p class="project-detail-description">{projectData.description}</p>
+                
+                {/* <h3>{`Status: ${projectData.is_open}`}</h3> */}
+                <h3>Pledges:</h3>
+                <ul>
+                    {projectData.pledges.map((pledge, key) => {
+                        return <li key={key}>{pledge.amount}</li>;
+                    })}
+                </ul>
+            </div>
+            
         </div>
     )
 }

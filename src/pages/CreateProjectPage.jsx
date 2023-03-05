@@ -3,7 +3,7 @@ import ProjectForm from '../components/ProjectForm';
 
 function CreateProjectPage(){
    return(
-        <div>
+        <div >
             <h2>Create a project</h2>      
             <ProjectForm />
         </div>

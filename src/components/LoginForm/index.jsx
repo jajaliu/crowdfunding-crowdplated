@@ -9,6 +9,8 @@ function LoginForm() {
 
     const navigate = useNavigate();
 
+ 
+
     const handleChange = (event) => {
         const {id, value} = event.target;
         setCredentials((prevCredentials) => ({
@@ -26,7 +28,6 @@ function LoginForm() {
             }
         );
         return response.json();
-
     }
 
     const handleSubmit = (event) => {
@@ -35,6 +36,7 @@ function LoginForm() {
            postData().then((response) => {
                 window.localStorage.setItem("token", response.token);
                 navigate("/");
+            
             });
         }
     }

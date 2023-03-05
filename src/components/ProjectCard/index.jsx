@@ -5,10 +5,14 @@ function ProjectCard (props) {
     const {projectData} = props;
 
     return (
-        <div>
+        <div class="project-card" >
             <Link to={`/project/${projectData.id}`}>
-                <img src={projectData.image}></img>
-                <h3>{projectData.title}</h3>
+            <div class="display-container">
+                <div class="project-card-title">{projectData.title}</div>
+                <img class="project-card-image" src={projectData.image} alt="Project"></img>
+            </div>
+                {/* <img src={projectData.image}></img>
+                <h3>{projectData.title}</h3> */}
             </Link>
 
         </div>

@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
 
 function ProjectForm(){
-    const[projectDetails, setProjectDetails] = useState({
+    const [projectDetails, setProjectDetails] = useState({
         title: "",
         address: "",
         description: "",
@@ -15,24 +15,26 @@ function ProjectForm(){
     const navigate = useNavigate();
 
     const handleChange = (event) => {
-        const{id, value} = event.target;
+        const {id, value} = event.target;
         setProjectDetails((prevProjectDetails) =>({
             ...prevProjectDetails,
             [id]: value,
             
         }));
-        console.log(projectDetails);
     };
 
     const postData = async() => {
-        const response = await fetch(`${import.meta.env.VITE_API_URL}create-project`, {
-            method: "post",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(projectDetails),
-        });
-        console.log(projectDetails);
+        const token = window.localStorage.getItem("token");
+        const response = await fetch(
+            `${import.meta.env.VITE_API_URL}create-project/`, {
+                method: "post",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `token ${token}`
+                },
+                body: JSON.stringify(projectDetails),
+            }
+        );
         if (response.status !== 201) {
             throw new Error(response.statusText);
         }
@@ -42,17 +44,18 @@ function ProjectForm(){
     const handleSubmit = (event) => {
         event.preventDefault();
         postData().then((response) => {
-            console.log(response);
             navigate("/");
         })
     }
 
     return (
-        <form>
+        <form >
+           
             <div>
                 <label htmlFor="title">Title: </label>
                 <input
                     type="text"
+                    class="inputFields"
                     id="title"
                     placeholder="Enter title"
                     onChange={handleChange}
@@ -62,6 +65,7 @@ function ProjectForm(){
                 <label htmlFor="address">Address: </label>
                 <input
                     type="text"
+                    class="inputFields"
                     id="address"
                     placeholder="Enter your resaurant's address"
                     onChange={handleChange}
@@ -71,6 +75,7 @@ function ProjectForm(){
                 <label htmlFor="description">Description: </label>
                 <input
                     type="text"
+                    class="inputFields"
                     id="description"
                     placeholder="Enter a description"
                     onChange={handleChange}
@@ -80,6 +85,7 @@ function ProjectForm(){
                 <label htmlFor="cuisine">Cuisine: </label>
                 <input
                     type="text"
+                    class="inputFields"
                     id="cuisine"
                     placeholder="Enter the cuisine"
                     onChange={handleChange}
@@ -89,6 +95,7 @@ function ProjectForm(){
                 <label htmlFor="image">Image: </label>
                 <input
                     type="url"
+                    class="inputFields"
                     id="image"
                     placeholder="Enter the URL for the image"
                     onChange={handleChange}
@@ -98,6 +105,7 @@ function ProjectForm(){
                 <label htmlFor="goal">Goal: </label>
                 <input
                     type="number"
+                    class="inputFields"
                     id="goal"
                     placeholder="Enter the goal"
                     onChange={handleChange}
@@ -107,12 +115,12 @@ function ProjectForm(){
                 <label htmlFor="is_open">Open for pledges: </label>
                 <input
                     type="checkbox"
+                    class="inputFields"
                     id="is_open"
-                    // placeholder="Enter the goal"
                     onChange={handleChange}
                 />
             </div>
-            <button type="submit" onClick={handleSubmit}>Submit</button>
+            <button type="submit" id="submit-btn" onClick={handleSubmit}>Submit</button>
         </form>
     )
 }
