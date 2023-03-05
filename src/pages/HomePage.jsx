@@ -24,7 +24,7 @@ function HomePage() {
             {/* <h1>CrowdPlated</h1>
              */}
             <header id="home">
-                <img id="home_image" src="src/assets/home_image.jpg" alt="CrowdPlated" ></img>
+                <img id="home_image" src="https://images.pexels.com/photos/8093849/pexels-photo-8093849.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="CrowdPlated" ></img>
                 <div class="text_ontop">
                     <h1 is="h1-home">CrowdPlated</h1>
                     <h4>Bring your dream restaurant to life</h4> 

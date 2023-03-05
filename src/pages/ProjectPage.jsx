@@ -32,7 +32,7 @@ function ProjectPage() {
                 <h3>Pledges:</h3>
                 <ul>
                     {projectData.pledges.map((pledge, key) => {
-                        return <li key={key}>{pledge.amount}</li>;
+                        return <li key={key}>{`A user commented "${pledge.comment}" and pledged $${pledge.amount} `}</li>;
                     })}
                 </ul>
             </div>

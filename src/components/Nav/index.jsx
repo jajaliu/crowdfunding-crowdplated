@@ -25,7 +25,7 @@ function Nav() {
     return (
         <nav>
             <div><Link to="/">
-            <img id="logo" src="src/assets/logo.jpg" alt="Logo" ></img>
+            <img id="logo" src="https://static.vecteezy.com/system/resources/previews/005/542/677/original/modern-shape-plate-with-spoon-and-fork-logo-symbol-icon-graphic-design-illustration-idea-creative-vector.jpg" alt="Logo" ></img>
             </Link></div>
            
            <div>
